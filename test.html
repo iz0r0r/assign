@@ -1,0 +1,29 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="angular.min.js"></script>
+    <script src="test.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="maincont">
+    <div class="center">
+        <input class="inputs center" type="text" ng-model="nameVal" placeholder="Enter Your Name Here ">
+        <input  class="inputs center" type="text" ng-model="stringVal" placeholder="Enter Your String Here ">
+        <div class="content">
+            <svg class="svgline">
+                <line ng-repeat="line in lineArray" ng-attr-x1="{{centerPoint.x}}" ng-attr-y1="{{centerPoint.y}}" ng-attr-x2="{{line.x}}" ng-attr-y2="{{line.y}}" style="stroke:rgba(22,100,151,.8);stroke-width:2" />
+            </svg>
+            <div style="padding:10px">
+                <div class="circleContent circleTop" ng-repeat="i in circlesArray" ng-if="$even"  ng-style="i.style">
+                    <span style="position:relative;" ng-style="i.top">{{i.name}}</span>
+                </div>
+            </div>
+            <div class="circleContent center" id="centerContent" ng-show="nameVal.length>0 || stringVal.length>0">
+                <span>{{nameVal}}</span>
+            </div>
+            <div style="padding:10px">
+                <div class="circleContent circleTop" ng-repeat="i in circlesArray"  ng-if="$odd" ng-style="i.style">
+                    <span style="position:relative;" ng-style="i.top">{{i.name}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
